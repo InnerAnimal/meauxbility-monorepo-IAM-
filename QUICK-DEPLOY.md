@@ -1,41 +1,45 @@
 # 🚀 Quick Deploy - See Your Sites Live in 5 Minutes!
 
-## Option 1: Deploy via Vercel CLI (Fastest)
+## ⚠️ Current Token Status
 
-### Step 1: Authenticate
-```bash
-vercel login
-```
+Your Vercel token (`vck_4BMqveAjanteOohRofOoWnyHnqi98PGVhUM9a64k62GRZKGdgP35Slto`) has **read-only access**:
+- ✅ Works for: `vercel whoami`
+- ❌ Fails for: deployments, linking projects
+- 📊 No projects accessible via API
 
-This will:
-- Open your browser
-- Ask you to confirm the login
-- Save your credentials
-
-### Step 2: Deploy All Three Apps
-```bash
-./deploy-all.sh
-```
-
-**OR** deploy individually to see each URL immediately:
-
-```bash
-# Deploy Meauxbility.org
-cd apps/meauxbility-org
-vercel --prod
-
-# Deploy Admin Portal
-cd ../admin-portal-production
-vercel --prod
-
-# Deploy Inner Animals Shop
-cd ../inneranimals-shop
-vercel --prod
-```
+**Best Solution:** Connect GitHub to existing Vercel projects via Dashboard (see Option 2 below)
 
 ---
 
-## Option 2: Deploy via Vercel Dashboard (No CLI Needed)
+## Option 1: Connect Existing Projects (RECOMMENDED - 15 mins)
+
+You already have 3 Vercel projects. Just connect them to GitHub!
+
+### For Each Project (5 mins each):
+
+**Meauxbility.org** (`prj_AemccTFEjP7ztRJivI4wtysSyEfi`):
+1. Go to Vercel Dashboard → Select your meauxbility project
+2. Settings → Git → "Connect Git Repository"
+3. Select: `InnerAnimal/meauxbility-monorepo-IAM-`
+4. Production Branch: `claude/november-3-unified-launch-011CUdHf21XhHwqH2VgUqq7n`
+5. **Root Directory:** `apps/meauxbility-org` ⚠️ CRITICAL!
+6. Save & Redeploy
+
+**Inner Animals Shop** (`prj_u5sO1Zibc1mhNRk0Bs8ijbwakIoR`):
+1. Same steps as above
+2. **Root Directory:** `apps/inneranimals-shop`
+
+**Admin Portal** (`prj_LQ9Z9xKZUt4qV5phrTGaYFw6GcWY`):
+1. Same steps as above
+2. **Root Directory:** `apps/admin-portal-production`
+3. Add environment variables (Supabase + Stripe)
+
+### ✨ Result:
+Every git push now automatically deploys all three sites!
+
+---
+
+## Option 2: New Projects via Dashboard (If starting fresh)
 
 ### 🏛️ Deploy Meauxbility.org
 
