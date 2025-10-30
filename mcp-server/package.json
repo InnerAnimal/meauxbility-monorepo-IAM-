@@ -1,0 +1,26 @@
+{
+  "name": "meaux-internal-mcp",
+  "version": "1.0.0",
+  "description": "Internal MCP server for Meauxbility admin ops with orchestration and monitoring",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "dashboard": "node src/dashboard/server.js",
+    "test": "node src/test/runner.js",
+    "health": "node src/health/check.js"
+  },
+  "keywords": ["mcp", "meauxbility", "orchestration", "devops"],
+  "author": "Meauxbility Foundation",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.2",
+    "dotenv": "^17.2.3",
+    "node-fetch": "^3.3.2",
+    "yargs": "^18.0.0",
+    "zod": "^3.25.76",
+    "express": "^4.18.2",
+    "ws": "^8.14.2"
+  }
+}
