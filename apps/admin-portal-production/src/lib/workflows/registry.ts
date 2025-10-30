@@ -1,5 +1,7 @@
 import { WorkflowResult } from './types';
 import { grantEligibilityWorkflow } from './grant-eligibility';
+import { secureDeploymentWorkflow, DeploymentInputSchema } from './deployment';
+import { integratedDeploymentWorkflow, IntegratedDeploymentInputSchema } from './integrated-deployment';
 
 /**
  * Workflow Registry
@@ -32,6 +34,30 @@ workflows.set('grant-eligibility', {
   version: '1.0.0',
   execute: grantEligibilityWorkflow,
   tags: ['grant', 'eligibility', 'analysis'],
+});
+
+// Register deployment workflow
+workflows.set('secure-deployment', {
+  id: 'secure-deployment',
+  name: 'Secure Deployment Workflow',
+  description:
+    'Multi-step deployment workflow with pre/post validation, testing, secret validation, and auto-rollback capabilities',
+  version: '1.0.0',
+  execute: secureDeploymentWorkflow,
+  inputSchema: DeploymentInputSchema,
+  tags: ['deployment', 'devops', 'security', 'automation'],
+});
+
+// Register integrated deployment workflow
+workflows.set('integrated-deployment', {
+  id: 'integrated-deployment',
+  name: 'Integrated GitHub + Vercel Deployment',
+  description:
+    'Complete deployment pipeline coordinating GitHub and Vercel agents with pre-flight checks, health validation, and team notifications',
+  version: '1.0.0',
+  execute: integratedDeploymentWorkflow,
+  inputSchema: IntegratedDeploymentInputSchema,
+  tags: ['deployment', 'github', 'vercel', 'automation', 'multi-agent'],
 });
 
 /**
