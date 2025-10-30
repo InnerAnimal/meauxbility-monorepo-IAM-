@@ -1,0 +1,16 @@
+name = "meauxbility-api"
+main = "src/index.js"
+compatibility_date = "2024-10-30"
+account_id = "e8d0359c2ad85845814f446f4dd174ea"
+
+[[kv_namespaces]]
+binding = "KV_BINDING"
+id = "5a156c2799884edd9490c09cedcda117"
+
+[env.production]
+name = "meauxbility-api"
+route = "meauxbility-api.meauxbility.workers.dev"
+
+[[env.production.kv_namespaces]]
+binding = "KV_BINDING"
+id = "5a156c2799884edd9490c09cedcda117"
