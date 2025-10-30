@@ -1,7 +1,4 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Inner Animals - Unleash Your Inner Warrior',
@@ -15,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-sans">
         <nav className="bg-black text-white p-4 sticky top-0 z-50 shadow-lg">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <h1 className="text-2xl font-bold tracking-wider">INNER ANIMALS</h1>
