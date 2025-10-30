@@ -1,0 +1,31 @@
+{
+  "name": "@meauxbility/edge-functions",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers edge functions for Meauxbility Foundation",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:production": "wrangler deploy --env production",
+    "deploy:staging": "wrangler deploy --env staging",
+    "tail": "wrangler tail",
+    "kv:list": "wrangler kv:namespace list",
+    "kv:get": "wrangler kv:key get --binding=KV_BINDING",
+    "kv:put": "wrangler kv:key put --binding=KV_BINDING",
+    "kv:delete": "wrangler kv:key delete --binding=KV_BINDING"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "edge",
+    "kv",
+    "cache"
+  ],
+  "author": "Meauxbility Foundation",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "wrangler": "^3.78.0",
+    "typescript": "^5.6.3"
+  }
+}

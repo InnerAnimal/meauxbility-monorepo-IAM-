@@ -1,0 +1,93 @@
+# =============================================================================
+# CLOUDFLARE WORKERS CONFIGURATION
+# =============================================================================
+# This file configures Cloudflare Workers for edge functions and KV storage
+# alongside your Vercel deployment for enhanced performance and caching.
+#
+# Use cases:
+# - Edge caching for API responses
+# - Session storage
+# - Rate limiting
+# - A/B testing
+# - Geolocation-based routing
+# =============================================================================
+
+name = "meauxbility-edge-functions"
+main = "src/index.ts"
+compatibility_date = "2024-10-30"
+
+# Account configuration (set via environment variables)
+# account_id will be read from CLOUDFLARE_ACCOUNT_ID env var
+
+# -----------------------------------------------------------------------------
+# KV NAMESPACES
+# -----------------------------------------------------------------------------
+# Your configured KV namespace for edge storage
+kv_namespaces = [
+    { binding = "KV_BINDING", id = "5a156c2799884edd9490c09cedcda117" }
+]
+
+# -----------------------------------------------------------------------------
+# ENVIRONMENT VARIABLES
+# -----------------------------------------------------------------------------
+# These are available to your Worker at runtime
+[vars]
+ENVIRONMENT = "production"
+VERCEL_MEAUX_URL = "https://meauxbility.org"
+VERCEL_ADMIN_URL = "https://iaudodidact.com"
+VERCEL_SHOP_URL = "https://inneranimals.com"
+
+# -----------------------------------------------------------------------------
+# PRODUCTION ENVIRONMENT
+# -----------------------------------------------------------------------------
+[env.production]
+name = "meauxbility-edge-functions-production"
+vars = { ENVIRONMENT = "production" }
+
+# Production KV namespace
+kv_namespaces = [
+    { binding = "KV_BINDING", id = "5a156c2799884edd9490c09cedcda117" }
+]
+
+# -----------------------------------------------------------------------------
+# STAGING ENVIRONMENT
+# -----------------------------------------------------------------------------
+[env.staging]
+name = "meauxbility-edge-functions-staging"
+vars = { ENVIRONMENT = "staging" }
+
+# Staging KV namespace (use same or create a separate one)
+kv_namespaces = [
+    { binding = "KV_BINDING", id = "5a156c2799884edd9490c09cedcda117" }
+]
+
+# -----------------------------------------------------------------------------
+# ROUTES (Optional)
+# -----------------------------------------------------------------------------
+# Uncomment to route specific paths through Cloudflare Workers
+# routes = [
+#     { pattern = "meauxbility.org/api/*", zone_name = "meauxbility.org" },
+#     { pattern = "inneranimals.com/api/*", zone_name = "inneranimals.com" }
+# ]
+
+# -----------------------------------------------------------------------------
+# BUILD CONFIGURATION
+# -----------------------------------------------------------------------------
+[build]
+command = "npm run build:worker"
+
+[build.upload]
+format = "service-worker"
+
+# -----------------------------------------------------------------------------
+# COMPATIBILITY
+# -----------------------------------------------------------------------------
+# Enable compatibility flags for modern features
+compatibility_flags = ["nodejs_compat"]
+
+# -----------------------------------------------------------------------------
+# LIMITS
+# -----------------------------------------------------------------------------
+# Default limits (adjust based on your needs)
+# workers_dev = false  # Disable workers.dev subdomain in production
+# usage_model = "bundled"  # or "unbound" for more CPU time
