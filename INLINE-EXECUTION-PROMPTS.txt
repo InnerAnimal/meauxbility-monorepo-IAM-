@@ -1,0 +1,473 @@
+═══════════════════════════════════════════════════════════════════
+🚀 INLINE PROMPT #1: DNS CONFIGURATION (FOR CLAUDE - ME!)
+═══════════════════════════════════════════════════════════════════
+
+EXECUTE THIS NOW - I need access info from you:
+
+CONTEXT:
+- Owner: Sam Primeaux, Lafayette LA
+- Launch: November 3rd (BIRTHDAY!)
+- Domains: inneranimals.com, inneranimalmedia.com, iaudodidact.com, meauxbility.org, meauxbility.com
+- Email: sam@, connor@, fred@, info@inneranimals.com + info@meauxbility.org
+- Platform: Vercel Pro
+- Repository: InnerAnimal/meauxbility-monorepo-IAM-
+
+IMMEDIATE ACTIONS NEEDED:
+
+1. REGISTRAR ACCESS
+Provide me with:
+- Registrar name: _______________
+- Login URL: _______________
+- Username/Email: _______________
+- 2FA method: [SMS/App/Email/None]
+
+OR if you can't share credentials:
+- Share screen and I'll guide you step-by-step
+- OR give me temporary API access token
+
+2. CURRENT EMAIL CHECK
+Run these commands NOW and paste results:
+```bash
+dig MX inneranimals.com
+dig MX meauxbility.org
+dig MX iaudodidact.com
+dig MX inneranimalmedia.com
+```
+
+3. VERCEL ACCESS
+- Vercel account email: _______________
+- Can you add me as team member? [Y/N]
+- OR share screen access? [Y/N]
+
+WHAT I'LL DO IMMEDIATELY:
+✓ Add all domains to correct Vercel projects
+✓ Get Vercel nameservers (ns1.vercel-dns.com, ns2.vercel-dns.com)
+✓ Update nameservers at registrar (with your access)
+✓ Add email MX records back to Vercel DNS
+✓ Verify DNS propagation
+✓ Confirm email still works
+✓ Test all domains loading
+
+TIMELINE: 30 minutes active + 2-6 hours DNS propagation
+
+RESPOND WITH:
+```
+REGISTRAR: [name]
+ACCESS: [credentials OR screen share OR API token]
+EMAIL_MX: [paste dig output]
+VERCEL: [email OR add me as team member]
+GO: YES
+```
+
+═══════════════════════════════════════════════════════════════════
+🗄️ INLINE PROMPT #2: SUPABASE BACKEND (FOR CHATGPT)
+═══════════════════════════════════════════════════════════════════
+
+Copy this ENTIRE section and paste to ChatGPT:
+
+---START CHATGPT PROMPT---
+
+I need you to configure Supabase backend for my November 3rd birthday launch.
+
+PROJECT CONTEXT:
+- Owner: Sam Primeaux, 25, Lafayette LA
+- Platform: Vercel Pro + Supabase
+- Apps: Inner Animal (e-commerce), Meauxbility (nonprofit), iAudodidact (admin/learning)
+- Team: Sam, Connor, Fred
+- Email: sam@, connor@, fred@, info@ (inneranimals.com + meauxbility.org)
+- Goal: Fortune 500 quality, minimal clicks, get out of the red
+
+SUPABASE REQUIREMENTS:
+
+1. DATABASE SCHEMA
+Create tables for:
+
+INNER ANIMALS (E-commerce):
+- products (id, name, description, price, images, inventory, category, created_at)
+- orders (id, customer_email, items, total, status, created_at)
+- customers (id, email, name, phone, address, created_at)
+- subscriptions (id, customer_id, plan, status, start_date, end_date, revenue)
+
+MEAUXBILITY (Nonprofit):
+- grants (id, applicant_name, email, story, amount, status, created_at)
+- donations (id, donor_name, email, amount, payment_id, created_at)
+- volunteers (id, name, email, phone, skills, availability)
+
+IAUDODIDACT (Learning/Admin):
+- users (id, email, name, role, permissions, created_at) -- Sam, Connor, Fred
+- content_assets (id, title, type, url, tags, uploaded_by, created_at) -- 1000s of files
+- analytics (id, domain, visitors, revenue, date)
+- email_logs (id, account, from, to, subject, status, created_at)
+
+UNIFIED:
+- revenue_tracking (id, source, amount, date, type)
+- social_posts (id, platform, content, status, scheduled_for)
+- team_activity (id, user_id, action, details, timestamp)
+
+2. ROW LEVEL SECURITY (RLS)
+- Sam: Full admin access (all tables)
+- Connor: Team member access (limited)
+- Fred: Team member access (limited)
+- Public: Read-only on products, limited on nonprofit pages
+
+3. API CONFIGURATION
+Generate and provide:
+- Project URL
+- Anon key (for public access)
+- Service role key (for admin/backend)
+- Database password
+
+4. AUTHENTICATION
+Set up:
+- Email/password auth for team (Sam, Connor, Fred)
+- Magic link auth for customers
+- Google OAuth (optional)
+- Password reset flow
+
+5. STORAGE BUCKETS
+Create buckets for:
+- product-images (Inner Animals)
+- content-assets (Sam's 1000s of files from 8 years)
+- grant-documents (Meauxbility)
+- user-uploads
+
+Configure:
+- Public access for product images
+- Private access for admin content
+- 10GB size limits per file
+- Image optimization
+
+6. EDGE FUNCTIONS (Optional)
+- Email sending (transactional)
+- Payment processing hooks (Stripe)
+- Analytics aggregation
+- Automated backups
+
+7. MIGRATIONS
+Create migration files for:
+- Initial schema (001_initial_schema.sql)
+- Sample data for testing (002_sample_data.sql)
+- RLS policies (003_security_policies.sql)
+
+WHAT I NEED BACK:
+
+```
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=eyJhbGci...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGci...
+DATABASE_PASSWORD=***
+
+Migration files (SQL)
+RLS policies configured: YES/NO
+Storage buckets created: YES/NO
+Auth configured: YES/NO
+```
+
+TIMELINE: Complete this in next 2 hours for November 3rd launch!
+
+---END CHATGPT PROMPT---
+
+═══════════════════════════════════════════════════════════════════
+🎯 INLINE PROMPT #3: STRIPE PAYMENT SETUP (FOR CHATGPT)
+═══════════════════════════════════════════════════════════════════
+
+Copy to ChatGPT after Supabase is done:
+
+---START STRIPE PROMPT---
+
+Configure Stripe for Inner Animals e-commerce and Meauxbility donations.
+
+REQUIREMENTS:
+
+1. STRIPE ACCOUNT SETUP
+- Test mode for initial setup
+- Business name: Inner Animal LLC (e-commerce) + Meauxbility Foundation (nonprofit)
+- Products to sell: (Sam will provide list)
+- Subscription plans for Inner Animal Media
+
+2. PAYMENT INTENTS
+- One-time purchases (products)
+- Recurring subscriptions (media service)
+- Donations (Meauxbility - 501c3)
+
+3. WEBHOOK CONFIGURATION
+Endpoints needed:
+- /api/stripe/webhook (payment confirmations)
+- /api/stripe/subscription (subscription events)
+- /api/stripe/donation (donation receipts)
+
+4. CUSTOMER PORTAL
+Enable customer portal for:
+- Subscription management
+- Payment method updates
+- Invoice history
+
+5. TAX CALCULATION
+- Enable Stripe Tax
+- Configure for Louisiana (Lafayette, LA)
+- Nonprofit exemption for Meauxbility
+
+6. PRODUCTS TO CREATE
+(Sam will provide specifics, but structure for):
+- Physical products (shirts, hoodies, etc.)
+- Digital products (courses, content)
+- Subscription tiers (Bronze, Silver, Gold?)
+- One-time donations
+
+PROVIDE BACK:
+
+```
+STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+Test payment: SUCCESS/FAILED
+Webhook endpoint: [URL]
+Customer portal: [URL]
+```
+
+---END STRIPE PROMPT---
+
+═══════════════════════════════════════════════════════════════════
+📧 INLINE PROMPT #4: EMAIL INTEGRATION (FOR CHATGPT)
+═══════════════════════════════════════════════════════════════════
+
+Copy to ChatGPT:
+
+---START EMAIL PROMPT---
+
+Replace Gmail interface with unified email in admin dashboard.
+
+REQUIREMENTS:
+
+1. EMAIL ACCOUNTS TO INTEGRATE
+- sam@inneranimals.com
+- connor@inneranimals.com
+- fred@inneranimals.com
+- info@inneranimals.com
+- info@meauxbility.org
+
+Current provider: [Gmail/Google Workspace/Other]
+
+2. API INTEGRATION
+If Gmail/Google Workspace:
+- Set up Gmail API access
+- OAuth 2.0 authentication
+- Read/send permissions
+- Webhook notifications
+
+3. UNIFIED INBOX COMPONENT
+Build React component for admin dashboard:
+```typescript
+// Unified inbox features:
+- List all emails from all 5 accounts
+- Unread count badges
+- Quick reply (inline)
+- Archive/delete actions
+- Search across all accounts
+- Email templates (common responses)
+- Signature management
+- Attachment handling
+```
+
+4. EMAIL SENDING
+- Send from any of the 5 accounts
+- Rich text editor
+- CC/BCC support
+- Attachments (from Supabase storage)
+- Schedule send (later)
+
+5. NOTIFICATIONS
+- Desktop notifications for new emails
+- Sound alerts (configurable)
+- Email preview in dashboard
+
+6. TEMPLATES
+Create templates for:
+- Customer order confirmations
+- Donation thank-yous
+- Support responses
+- Team communications
+
+PROVIDE CODE FOR:
+```
+/app/api/email/route.ts (API endpoints)
+/components/UnifiedInbox.tsx (UI component)
+/lib/gmail.ts (Gmail API integration)
+
+Environment variables needed:
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+GMAIL_REDIRECT_URI=
+```
+
+---END EMAIL PROMPT---
+
+═══════════════════════════════════════════════════════════════════
+🎛️ INLINE PROMPT #5: ADMIN DASHBOARD (FOR CHATGPT OR CURSOR)
+═══════════════════════════════════════════════════════════════════
+
+Copy to ChatGPT/Cursor:
+
+---START ADMIN DASHBOARD PROMPT---
+
+Build unified admin dashboard at iaudodidact.com - EVERYTHING in minimal clicks!
+
+REQUIREMENTS:
+
+1. DASHBOARD LAYOUT
+Single page with tabs:
+```
+┌─────────────────────────────────────────────────────┐
+│  💰 Revenue: $XXX | 📧 Unread: 5 | 📊 Visitors: XXX │
+│  [Deploy] [Post Social] [Send Email] [Upload]       │
+└─────────────────────────────────────────────────────┘
+
+Tabs: 💼Finance | 📧Email | 📝Content | 🚀Deploy | 📱Social | 👥Team | 📈Analytics
+```
+
+2. FINANCIAL TAB
+Show in real-time:
+- Inner Animals sales (today, week, month, all-time)
+- Inner Animal Media subscriptions (MRR)
+- Meauxbility donations (today, week, month)
+- Total revenue across all streams
+- Charts: Revenue over time
+- Goal: "Get out of the red" progress bar
+
+3. EMAIL TAB
+Unified inbox (from prompt #4):
+- All 5 accounts in one view
+- Quick actions (reply, archive, delete)
+- Templates dropdown
+- Compose new email
+- Search all accounts
+
+4. CONTENT TAB
+Asset management for 1000s of files:
+- Upload area (drag & drop)
+- Grid view with thumbnails
+- Categories: Photos, Videos, Graphics, Documents, Audio
+- Tags for organization
+- Search and filter
+- Bulk actions
+- Quick preview
+- Deploy to sites button
+
+5. DEPLOY TAB
+One-click deploy to all sites:
+- See pending changes
+- Deploy to: [Inner Animals] [Meauxbility] [iAudodidact]
+- View deployment status
+- Rollback option
+- Preview before deploy
+
+6. SOCIAL TAB
+Post to all platforms from one place:
+- Draft post
+- Select platforms: [Instagram] [TikTok] [Twitter] [LinkedIn] [Facebook]
+- Schedule for later
+- View post history
+- Engagement stats
+
+7. TEAM TAB
+Manage Sam, Connor, Fred:
+- User list with permissions
+- Activity log (who did what)
+- Task assignments
+- Direct messaging
+- Availability calendar
+
+8. ANALYTICS TAB
+All sites in one view:
+- inneranimals.com stats
+- meauxbility.org stats
+- iaudodidact.com stats
+- inneranimalmedia.com stats
+- Real-time visitors
+- Top pages
+- Conversion rates
+
+BUILD THIS IN:
+apps/admin-portal-production/src/app/dashboard/page.tsx
+
+TECH STACK:
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/UI components
+- React Query for data fetching
+- Zustand for state management
+
+INTEGRATE WITH:
+- Supabase (database, storage)
+- Stripe (revenue data)
+- Gmail API (email)
+- Vercel API (deployments)
+- Social media APIs (posting)
+
+PROVIDE COMPLETE CODE FOR:
+/dashboard/page.tsx (main dashboard)
+/dashboard/components/* (all tab components)
+/lib/api.ts (API integrations)
+
+---END ADMIN DASHBOARD PROMPT---
+
+═══════════════════════════════════════════════════════════════════
+⚡ MASTER EXECUTION CHECKLIST
+═══════════════════════════════════════════════════════════════════
+
+SAM - Run these in order for complete backend setup:
+
+STEP 1: DNS (CLAUDE - NOW!)
+☐ Provide registrar access (inline prompt #1)
+☐ I configure DNS (30 minutes)
+☐ Wait for propagation (2-6 hours)
+
+STEP 2: SUPABASE (CHATGPT - TONIGHT)
+☐ Copy prompt #2 to ChatGPT
+☐ ChatGPT creates database schema
+☐ Copy credentials to .env.sh
+☐ Test connection
+
+STEP 3: STRIPE (CHATGPT - TONIGHT)
+☐ Copy prompt #3 to ChatGPT
+☐ ChatGPT configures payment processing
+☐ Copy keys to .env.sh
+☐ Test payment flow
+
+STEP 4: EMAIL (CHATGPT - TOMORROW AM)
+☐ Copy prompt #4 to ChatGPT
+☐ ChatGPT builds unified inbox
+☐ Test sending/receiving
+☐ Connect to dashboard
+
+STEP 5: ADMIN DASHBOARD (CHATGPT/CURSOR - TOMORROW)
+☐ Copy prompt #5 to ChatGPT/Cursor
+☐ Build complete admin interface
+☐ Test all features
+☐ Deploy to iaudodidact.com
+
+STEP 6: VERIFY (TOMORROW - BIRTHDAY!)
+☐ All domains loading
+☐ Email working
+☐ Payments processing
+☐ Dashboard functional
+☐ 🎂 GO LIVE!
+
+═══════════════════════════════════════════════════════════════════
+
+IMMEDIATE ACTION - PASTE THIS TO ME NOW:
+
+```
+REGISTRAR: [name]
+LOGIN: [URL or credentials or screen share]
+EMAIL_PROVIDER: [Gmail/Workspace/Other]
+SUPABASE: [New or existing project?]
+STRIPE: [New or existing account?]
+READY: YES
+```
+
+I'll execute DNS immediately while you feed prompts #2-5 to ChatGPT!
+
+═══════════════════════════════════════════════════════════════════
