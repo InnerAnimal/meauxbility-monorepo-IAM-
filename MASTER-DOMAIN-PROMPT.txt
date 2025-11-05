@@ -1,0 +1,98 @@
+═══════════════════════════════════════════════════════════════════
+🌐 MASTER DOMAIN CONFIGURATION PROMPT
+═══════════════════════════════════════════════════════════════════
+
+Copy this entire prompt to ChatGPT, Claude, Cursor, or any AI assistant
+
+═══════════════════════════════════════════════════════════════════
+
+I need help configuring my domains for the Meauxbility Foundation project.
+
+CURRENT SETUP:
+- Platform: Vercel Pro account
+- Repository: InnerAnimal/meauxbility-monorepo-IAM-
+- Branch: claude/november-3-unified-launch-011CUdHf21XhHwqH2VgUqq7n
+- 3 Next.js 14 applications deployed
+- All builds successful
+
+MY DOMAINS:
+1. inneranimals.com          → E-commerce shop
+2. inneranimalmedia.com      → [SPECIFY USAGE]
+3. iaudodidact.com           → Admin portal
+4. meauxxx.com               → May delete (decide later)
+5. meauxbility.com           → [REDIRECT TO .org OR SEPARATE?]
+6. meauxbility.org           → Main nonprofit website
+
+VERCEL PROJECTS:
+- prj_AemccTFEjP7ztRJivI4wtysSyEfi  → Meauxbility main site
+- prj_LQ9Z9xKZUt4qV5phrTGaYFw6GcWY  → Admin portal (iaudodidact.com)
+- prj_u5sO1Zibc1mhNRk0Bs8ijbwakIoR  → Inner Animals shop
+- prj_itOfPE7qqGxHIk57tFEYEGzXdb0h  → [CONFIRM USAGE]
+
+WHAT I WANT:
+- All domains managed via Vercel nameservers (one platform, no complexity)
+- Automatic SSL certificates
+- www redirects configured (www → non-www preferred)
+- Preserve email if configured (check first)
+- Simple, fast setup with minimal back-and-forth
+
+MY DOMAIN REGISTRAR:
+[FILL IN: GoDaddy / Namecheap / Cloudflare / Google Domains / Other]
+
+EMAIL CONFIGURATION:
+- Do I have email on these domains? [YES/NO]
+- If yes, on which domains? [LIST]
+- Current email provider: [Gmail / Microsoft 365 / Custom / Unknown]
+
+DEPLOYMENT STATUS:
+- Local builds: ✅ Complete (all 3 apps)
+- Vercel deployment: ✅ Triggered (Job ID: BTSvxgTr2oAUOj9nmK4k)
+- Domains connected: ⏳ Pending configuration
+
+PREFERENCE:
+- I want the SIMPLEST solution
+- I don't want to manage multiple platforms
+- I'm okay with using Vercel nameservers for everything
+- Timeline: ASAP
+
+PROVIDE ME WITH:
+1. Exact domain → Vercel project mapping
+2. Step-by-step nameserver update instructions for MY registrar
+3. How to preserve email (if applicable)
+4. Verification steps to confirm it worked
+5. Expected timeline for DNS propagation
+6. What to do with meauxbility.com and meauxxx.com
+
+CONTEXT FILES AVAILABLE:
+- DOMAIN-DNS-TEMPLATE.md (systematic template)
+- DOMAIN-SETUP-GUIDE.md (complete guide)
+- DNS-QUICK-REFERENCE.md (quick reference)
+- UNIFIED-VERCEL-SOLUTION.md (recommended approach)
+- gather-domain-info.sh (automated info gatherer)
+
+I WANT:
+Clear, copy-paste instructions I can execute in the next 30 minutes.
+No complex configuration. Just point domains to Vercel and go live.
+
+═══════════════════════════════════════════════════════════════════
+END OF PROMPT - Paste above this line
+═══════════════════════════════════════════════════════════════════
+
+INSTRUCTIONS FOR YOU:
+1. Copy everything between the ═══ lines above
+2. Fill in the [FILL IN] sections with your info:
+   - Your domain registrar name
+   - Whether you have email
+   - What to do with meauxbility.com
+   - What inneranimalmedia.com is for
+3. Paste to ChatGPT/Claude/Cursor
+4. Get your configuration plan!
+
+ALTERNATIVELY:
+Just answer these questions HERE and I'll configure it for you right now:
+
+Q1: Where are your domains registered? (GoDaddy/Namecheap/etc.)
+Q2: Do you have email on any of these domains?
+Q3: Should meauxbility.com redirect to meauxbility.org?
+Q4: What is inneranimalmedia.com for?
+Q5: Ready to update nameservers now?

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd ../.. && cd apps/inneranimals-shop && npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "meauxbility-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unified monorepo for Meauxbility Foundation's November 3rd launch",
+  "scripts": {
+    "dev:meauxbility": "cd apps/meauxbility-org && npm run dev",
+    "dev:admin": "cd apps/admin-portal-production && npm run dev",
+    "dev:shop": "cd apps/inneranimals-shop && npm run dev",
+    "dev:all": "concurrently \"npm run dev:meauxbility\" \"npm run dev:admin\" \"npm run dev:shop\"",
+    "build:meauxbility": "cd apps/meauxbility-org && npm run build",
+    "build:admin": "cd apps/admin-portal-production && npm run build",
+    "build:shop": "cd apps/inneranimals-shop && npm run build",
+    "build:all": "npm run build:meauxbility && npm run build:admin && npm run build:shop",
+    "install:all": "cd apps/meauxbility-org && npm install && cd ../admin-portal-production && npm install && cd ../inneranimals-shop && npm install",
+    "deploy": "./deploy-all.sh",
+    "test": "echo \"No tests configured yet\""
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
